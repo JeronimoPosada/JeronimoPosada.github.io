@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jerónimo Posada | Backend Python e IA</title>
+<meta name="description" content="Desarrollador backend Python y cofundador de JIBU. Construí ConciliaIA, una plataforma de conciliación de pagos donde la IA lee y las reglas deciden.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="nav-name" href="#inicio">Jerónimo Posada</a>
+  <nav class="nav-links" aria-label="Secciones">
+    <a href="#conciliaia" data-i18n="nav.concilia">ConciliaIA</a>
+    <a href="#agentes" data-i18n="nav.agents">Agentes de IA</a>
+    <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+    <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+  </nav>
+  <button class="lang" id="lang" type="button" aria-label="Cambiar idioma / Switch language">
+    <span data-lang="es">ES</span><span data-lang="en">EN</span>
+  </button>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="hero-copy">
+    <h1 class="hero-title">
+      <span class="line"><span data-i18n="hero.l1">Backend que</span></span>
+      <span class="line"><span data-i18n="hero.l2">verifica todo.</span></span>
+      <span class="line lila"><span data-i18n="hero.l3">También a la IA.</span></span>
+    </h1>
+    <p class="hero-sub" data-i18n="hero.sub">Soy Jerónimo Posada, desarrollador backend Python en Medellín y cofundador de JIBU. Construí ConciliaIA, una plataforma que revisa cada pago contra el banco antes de entregar un pedido.</p>
+    <div class="hero-cta">
+      <a class="btn btn-violet" href="https://wa.me/573053403401" target="_blank" rel="noopener" data-i18n="cta.whatsapp">Escribirme por WhatsApp</a>
+      <a class="btn btn-ghost js-cv" href="cv/CV_Jeronimo_Posada_ES.pdf" download data-i18n="cta.cv">Descargar CV</a>
+    </div>
+  </div>
+
+  <div class="ledger" id="ledger" aria-label="Demostración de conciliación de pagos">
+    <div class="ledger-head">
+      <strong data-i18n="ledger.title">Caja en vivo, turno noche</strong>
+      <span class="ledger-live"><i></i><span data-i18n="ledger.live">simulación</span></span>
+    </div>
+    <div class="ledger-cols">
+      <span data-i18n="ledger.c1">Comprobante</span>
+      <span data-i18n="ledger.c2">Banco</span>
+      <span data-i18n="ledger.c3">Estado</span>
+    </div>
+    <ul class="ledger-rows" id="ledgerRows"></ul>
+    <div class="ledger-foot">
+      <p class="ledger-count"><b id="okCount">0</b> <span data-i18n="ledger.ok">confirmados</span>, <b id="revCount">0</b> <span data-i18n="ledger.rev">a revisión</span></p>
+      <button class="btn btn-fake" id="fakeBtn" type="button" data-i18n="ledger.fake">Colar un comprobante falso</button>
+    </div>
+    <p class="ledger-msg" id="ledgerMsg" role="status" data-i18n="ledger.hint">Prueba a engañar al sistema con el botón.</p>
+  </div>
+</section>
+
+<!-- ============ DOS CAMINOS ============ -->
+<section class="paths">
+  <div class="path">
+    <h2 data-i18n="paths.h1">Si buscas a alguien para tu equipo</h2>
+    <p data-i18n="paths.p1">Trabajo con Python, FastAPI, PostgreSQL y Docker. Vengo de hacer pruebas de software, así que reviso lo que construyo antes de entregarlo. Estoy abierto a roles de backend, IA aplicada y automatización, en remoto o híbrido en Medellín.</p>
+    <div class="path-links">
+      <a class="btn btn-black js-cv" href="cv/CV_Jeronimo_Posada_ES.pdf" download data-i18n="cta.cv">Descargar CV</a>
+      <a class="link" href="https://www.linkedin.com/in/jeronimoposadag/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="link" href="https://github.com/JeronimoPosada" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <div class="path">
+    <h2 data-i18n="paths.h2">Si tu negocio necesita software</h2>
+    <p data-i18n="paths.p2">En JIBU somos tres ingenieros en Medellín. Hacemos automatizaciones con IA, software a la medida y ConciliaIA. Quien te responde es quien escribe el código. El diagnóstico inicial es gratis.</p>
+    <div class="path-links">
+      <a class="btn btn-black" href="https://wa.me/573053403401" target="_blank" rel="noopener" data-i18n="cta.whatsapp2">Hablar por WhatsApp</a>
+      <a class="link" href="https://somosjibu.com/" target="_blank" rel="noopener">somosjibu.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCILIAIA ============ -->
+<section class="concilia" id="conciliaia">
+  <div class="concilia-inner">
+    <div class="concilia-text">
+      <h2 data-i18n="con.h">ConciliaIA: la IA lee, las reglas deciden.</h2>
+      <p class="concilia-lead" data-i18n="con.lead">Muchos negocios entregan pedidos confiando en la foto de una transferencia. ConciliaIA comprueba que la plata sí llegó. La diseñé y la programé completa.</p>
+      <ol class="steps" id="steps">
+        <li class="is-on"><b data-i18n="con.s1t">Llega el comprobante</b><span data-i18n="con.s1">El cliente envía la captura de su transferencia.</span></li>
+        <li><b data-i18n="con.s2t">La IA lo lee</b><span data-i18n="con.s2">Un modelo multimodal extrae monto, referencia, fecha y cuenta. Solo lee: no decide nada.</span></li>
+        <li><b data-i18n="con.s3t">El motor lo cruza con el banco</b><span data-i18n="con.s3">Reglas fijas y auditables comparan esos datos con los movimientos reales de la cuenta.</span></li>
+        <li><b data-i18n="con.s4t">Se libera o va a revisión</b><span data-i18n="con.s4">Si el banco confirma, el pedido sale. Si no, lo revisa una persona antes de entregar.</span></li>
+      </ol>
+    </div>
+
+    <div class="stage" id="stage" aria-hidden="true">
+      <div class="receipt" id="receipt">
+        <div class="receipt-scan"></div>
+        <p class="receipt-ok" data-i18n="st.ok">Transferencia exitosa</p>
+        <p class="receipt-amount">$48.000</p>
+        <dl>
+          <div><dt data-i18n="st.ref">Referencia</dt><dd>M-739201</dd></div>
+          <div><dt data-i18n="st.date">Fecha</dt><dd>12 nov, 9:41 p. m.</dd></div>
+          <div><dt data-i18n="st.to">Destino</dt><dd>Ahorros *4417</dd></div>
+        </dl>
+      </div>
+
+      <ul class="fields" id="fields">
+        <li><span data-i18n="st.f1">monto</span><b>48000</b></li>
+        <li><span data-i18n="st.f2">referencia</span><b>M-739201</b></li>
+        <li><span data-i18n="st.f3">fecha</span><b>2026-11-12 21:41</b></li>
+        <li><span data-i18n="st.f4">cuenta</span><b>*4417</b></li>
+      </ul>
+
+      <div class="bank" id="bank">
+        <p class="bank-title" data-i18n="st.bank">Movimientos del banco</p>
+        <ul>
+          <li><span>21:38</span><span>M-739188</span><b>$22.500</b></li>
+          <li class="match"><span>21:41</span><span>M-739201</span><b>$48.000</b></li>
+          <li><span>21:44</span><span>M-739215</span><b>$61.000</b></li>
+        </ul>
+      </div>
+
+      <div class="stamp" id="stamp">
+        <span data-i18n="st.stamp1">Confirmado</span>
+        <small data-i18n="st.stamp2">pedido liberado</small>
+      </div>
+    </div>
+  </div>
+
+  <ul class="concilia-facts">
+    <li data-i18n="con.f1">Vista de caja en tiempo real con WebSockets</li>
+    <li data-i18n="con.f2">Cierre del día contra el auxiliar contable</li>
+    <li data-i18n="con.f3">Propuesta automática de asientos contables</li>
+    <li data-i18n="con.f4">Datos aislados por cliente con Row-Level Security</li>
+    <li data-i18n="con.f5">Python, FastAPI, PostgreSQL, Supabase y OpenAI API</li>
+  </ul>
+</section>
+
+<!-- ============ AGENTES ============ -->
+<section class="agents" id="agentes">
+  <h2 data-i18n="ag.h">Trabajo con agentes de IA y reviso todo lo que entregan.</h2>
+  <div class="agents-grid">
+    <div>
+      <p class="agents-lead" data-i18n="ag.lead">En JIBU armé un equipo de agentes en Claude Code. Cada uno tiene sus propias skills e instrucciones, y se encarga de una parte del negocio.</p>
+      <dl class="agent-list">
+        <div><dt data-i18n="ag.a1t">Contenido</dt><dd data-i18n="ag.a1">Prepara los borradores de lo que publicamos en JIBU.</dd></div>
+        <div><dt data-i18n="ag.a2t">Búsqueda de clientes</dt><dd data-i18n="ag.a2">Encuentra negocios a los que les sirve lo que hacemos y ordena la información para contactarlos.</dd></div>
+        <div><dt data-i18n="ag.a3t">Mentor</dt><dd data-i18n="ag.a3">Lo uso a diario desde hace más de dos meses para planear, revisar decisiones técnicas y estudiar.</dd></div>
+      </dl>
+    </div>
+    <div class="audit">
+      <h3 data-i18n="ag.auh">Cómo audito a la IA</h3>
+      <div class="audit-demo" id="auditDemo">
+        <p class="audit-line bad"><span data-i18n="ag.bad">«El pago fue verificado correctamente.»</span></p>
+        <p class="audit-note" data-i18n="ag.note">¿Verificado contra qué? El modelo no consultó el banco.</p>
+        <p class="audit-line good"><span data-i18n="ag.good">«Leí monto y referencia. Falta cruzarlos con el banco.»</span></p>
+      </div>
+      <ul class="audit-rules">
+        <li data-i18n="ag.r1">No acepto código generado sin leerlo y probarlo.</li>
+        <li data-i18n="ag.r2">Comparo cada dato con su fuente original.</li>
+        <li data-i18n="ag.r3">Cuando un agente falla, corrijo sus instrucciones y no solo esa respuesta.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="flow-title" data-i18n="ag.fh">Así trabaja cada agente</h3>
+  <ol class="flow" id="flow">
+    <li style="--i:0"><b data-i18n="ag.f1t">Recibe la tarea</b><span data-i18n="ag.f1">Le doy el objetivo y el contexto del negocio.</span></li>
+    <li style="--i:1"><b data-i18n="ag.f2t">Usa sus skills</b><span data-i18n="ag.f2">Cada skill es una instrucción que escribí para un trabajo concreto.</span></li>
+    <li style="--i:2"><b data-i18n="ag.f3t">Entrega un borrador</b><span data-i18n="ag.f3">Lo que produce llega primero a mí.</span></li>
+    <li style="--i:3"><b data-i18n="ag.f4t">Lo reviso</b><span data-i18n="ag.f4">Leo, pruebo y comparo con la fuente.</span></li>
+    <li style="--i:4"><b data-i18n="ag.f5t">Se usa o se corrige</b><span data-i18n="ag.f5">Si falló, ajusto la skill para que no se repita.</span></li>
+  </ol>
+</section>
+
+<!-- ============ PROYECTOS ============ -->
+<section class="projects" id="proyectos">
+  <h2 data-i18n="pr.h">Proyectos con código público</h2>
+  <ul class="project-list">
+    <li><a href="https://github.com/JeronimoPosada/generado_qr" target="_blank" rel="noopener">
+      <h3 data-i18n="pr.1t">QR dinámico para negocios</h3>
+      <p data-i18n="pr.1">El negocio imprime su QR una sola vez y cambia el destino desde el celular cuando quiera. Funciona con QR y NFC.</p>
+      <span class="tags">FastAPI, Supabase, Render</span>
+    </a></li>
+    <li><a href="https://github.com/JeronimoPosada/Predicciones_Mundial_2026" target="_blank" rel="noopener">
+      <h3 data-i18n="pr.2t">Predictor del Mundial 2026</h3>
+      <p data-i18n="pr.2">Modelo estadístico que estima resultados de partidos con regresión de Poisson y ratings ELO, a partir de datos de una API de fútbol.</p>
+      <span class="tags">Python, Pandas, Poisson, ELO</span>
+    </a></li>
+    <li><a href="https://github.com/JeronimoPosada/tracker_financiero_ia" target="_blank" rel="noopener">
+      <h3 data-i18n="pr.3t">Tracker financiero con IA</h3>
+      <p data-i18n="pr.3">Registra gastos por Telegram, los clasifica con IA y los sincroniza con Google Sheets para seguir metas de ahorro.</p>
+      <span class="tags">Python, Gemini API, PostgreSQL, Google Sheets</span>
+    </a></li>
+    <li><a href="https://github.com/JeronimoPosada/Ubicaci-n-ptima-de-centros-de-servicio" target="_blank" rel="noopener">
+      <h3 data-i18n="pr.4t">Red de cobertura del Valle de Aburrá</h3>
+      <p data-i18n="pr.4">Mapa interactivo que calcula dónde ubicar centros de servicio en el área metropolitana usando optimización matemática.</p>
+      <span class="tags">JavaScript, Python, programación lineal</span>
+    </a></li>
+    <li><a href="https://github.com/JeronimoPosada/analisis_SUNBURST" target="_blank" rel="noopener">
+      <h3 data-i18n="pr.5t">Análisis del ataque SUNBURST</h3>
+      <p data-i18n="pr.5">Estudio del ciberataque a SolarWinds desde la gestión de datos: modelo de datos, datasets simulados y métricas de calidad.</p>
+      <span class="tags">Jupyter, Pandas, DAMA DMBOK</span>
+    </a></li>
+  </ul>
+</section>
+
+<!-- ============ EMPRENDIMIENTOS ============ -->
+<section class="ventures">
+  <h2 data-i18n="ve.h">También sé lo que es montar un negocio</h2>
+  <div class="venture-grid">
+    <article>
+      <h3>JIBU</h3>
+      <p class="venture-role" data-i18n="ve.1r">Cofundador, desde octubre de 2026</p>
+      <p data-i18n="ve.1">Startup de software en Medellín. Automatizaciones con IA, desarrollo a la medida y ConciliaIA.</p>
+      <a class="link" href="https://somosjibu.com/" target="_blank" rel="noopener">somosjibu.com</a>
+    </article>
+    <article>
+      <h3>TapBio</h3>
+      <p class="venture-role" data-i18n="ve.2r">Fundador, sin socios</p>
+      <p data-i18n="ve.2">Habladores de acrílico con NFC y QR para que un negocio cobre más fácil. Hice el generador de QR dinámicos y una página de pago que muestra el titular, el nombre del negocio, las llaves para copiar y un botón que abre el banco del cliente.</p>
+      <a class="link" href="https://www.instagram.com/tapbio.nfc/" target="_blank" rel="noopener">@tapbio.nfc</a>
+    </article>
+    <article>
+      <h3>Luna Turquí</h3>
+      <p class="venture-role" data-i18n="ve.3r">Fundador</p>
+      <p data-i18n="ve.3">Joyería para mascotas. Mi emprendimiento fuera del software.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ STACK Y FORMACIÓN ============ -->
+<section class="stack">
+  <div>
+    <h2 data-i18n="sk.h">Con qué trabajo</h2>
+    <dl class="stack-list">
+      <div><dt data-i18n="sk.1t">Backend</dt><dd>Python, FastAPI, APIs REST, WebSockets, SQLAlchemy</dd></div>
+      <div><dt data-i18n="sk.2t">Datos</dt><dd>PostgreSQL, Supabase, SQL, Pandas, NumPy</dd></div>
+      <div><dt data-i18n="sk.3t">IA</dt><dd data-i18n="sk.3">Claude Code, OpenAI API, Gemini API, agentes y skills, lectura de documentos con modelos multimodales</dd></div>
+      <div><dt data-i18n="sk.4t">Operación</dt><dd>Docker, Linux, Git, GitHub, Postman, Jira</dd></div>
+      <div><dt data-i18n="sk.5t">Calidad</dt><dd data-i18n="sk.5">Pruebas funcionales, de integración y de regresión</dd></div>
+    </dl>
+  </div>
+  <div>
+    <h2 data-i18n="ed.h">Formación</h2>
+    <ul class="edu-list">
+      <li><b data-i18n="ed.1t">Ingeniería de Datos y Software</b><span data-i18n="ed.1">Universidad de San Buenaventura, Medellín. Cuarto semestre.</span></li>
+      <li><b data-i18n="ed.2t">Ingeniería de IA</b><span data-i18n="ed.2">Platzi. En curso.</span></li>
+      <li><b data-i18n="ed.3t">Análisis de datos</b><span data-i18n="ed.3">Coursera. En curso.</span></li>
+      <li><b data-i18n="ed.4t">Python intermedio y fundamentos de Python</b><span>Platzi, 2026.</span></li>
+      <li><b data-i18n="ed.5t">Cursos de inteligencia artificial</b><span data-i18n="ed.5">Mastercard y Bancolombia.</span></li>
+      <li><b data-i18n="ed.6t">Hacking ético</b><span data-i18n="ed.6">Curso certificado.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="contact" id="contacto">
+  <h2 data-i18n="ct.h">Hablemos.</h2>
+  <p data-i18n="ct.p">Si tienes una vacante de backend o IA, o un negocio con un proceso que se puede automatizar, escríbeme. Respondo yo.</p>
+  <div class="contact-links">
+    <a class="btn btn-violet" href="https://wa.me/573053403401" target="_blank" rel="noopener" data-i18n="cta.whatsapp">Escribirme por WhatsApp</a>
+    <a class="btn btn-ghost" href="mailto:jp.posada6@gmail.com">jp.posada6@gmail.com</a>
+    <a class="btn btn-ghost js-cv" href="cv/CV_Jeronimo_Posada_ES.pdf" download data-i18n="cta.cv">Descargar CV</a>
+  </div>
+  <div class="contact-social">
+    <a href="https://www.linkedin.com/in/jeronimoposadag/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/JeronimoPosada" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://somosjibu.com/" target="_blank" rel="noopener">JIBU</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2026 Jerónimo Posada Gil</span>
+  <span data-i18n="ft">Medellín, Colombia</span>
+</footer>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
